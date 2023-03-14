@@ -77,13 +77,13 @@ namespace project_hm
         public void Print()//
         {
             Console.WriteLine($"язык который вы выбрали {language}");//Тип языка  
-            //foreach (var a in dictionary)//слово записанное в переводчик 
-            //{
-            //    Console.WriteLine($"{a.Key} превод слова: {a.Value}");//Слово под ключом которое записали и перевод слова под Value запись на консоли
-            //}
-            StreamReader sr = new StreamReader(language + ".txt", Encoding.UTF8);
-            Console.WriteLine(sr.ReadToEnd());
-            sr.Close();
+            foreach (var a in dictionary)//слово записанное в переводчик 
+            {
+                Console.WriteLine($"{a.Key} превод слова: {a.Value}");//Слово под ключом которое записали и перевод слова под Value запись на консоли
+            }
+            //StreamReader sr = new StreamReader(language + ".txt", Encoding.UTF8);
+            //Console.WriteLine(sr.ReadToEnd());
+            //sr.Close();
         }
     }
 }
