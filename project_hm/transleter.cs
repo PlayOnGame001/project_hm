@@ -35,6 +35,7 @@ namespace project_hm
         {
             dictionary = slovo;
         }
+        //Создаем словарь
         public void Create()
         {
             dictionary = new Dictionary<string, string>();//Язык который мы выберем щапишется в словарь 
@@ -43,15 +44,19 @@ namespace project_hm
             language = Console.ReadLine();
             Console.WriteLine($"Вы выбрали язык {language}, вы уверены? ");
 
-            //if (num <1)
+            ///////Идея в том чтобы можно было вернуться если выбрал не правельный словарь 
+            //if ()
             //{
             //    Console.WriteLine("Хорошо");
             //}
             //else
             //{
             //    Console.WriteLine("Выберите другой");
+            //    return (dictionary);
             //}
+            ///////
         }
+        /////Добавляем слово и его перевод в словарь 
         public void Add(Dictionary<string, string> translate, FileStream fs)
         {
             Console.Write("Введите слово: ");//Тут все просто в водим слово 
@@ -66,6 +71,7 @@ namespace project_hm
                 write_file.Write($"{item.Key} - перевод - {item.Value}");//Слово под ключом которое записали и перевод слова под Value запись в файл
             }
         }
+        //////Записывает в файл результат
         public void Print()//
         {
             Console.WriteLine($"язык который вы выбрали {language}");//Тип языка  
