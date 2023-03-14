@@ -14,7 +14,6 @@ namespace project_hm
     interface EditDictionary  // Интерфейс словоря с дополнением 
     {
         void Add(Dictionary<string, string> translate, FileStream fs);
-
     }
     interface PrintDictionary // Создание интерфейса с печаткой словаря 
     {
