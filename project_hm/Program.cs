@@ -30,7 +30,7 @@ namespace project_hm
             bool exit = false;
             while (exit != true)
             {
-                Console.Write("Выбор действия:   1.Создать  2.Добавить  3.Редактировать  4.Удлить  5.Печатать  6.Выйти \nВаш ответ: ");
+                Console.Write("Выбор действия:   1.Создать еще слово 2.Перевод 3.Выйти \nВаш ответ: ");
                 try
                 {
                     string c = Console.ReadLine();
@@ -41,35 +41,35 @@ namespace project_hm
                             translet.Create();
                             Console.WriteLine();
                             break;
-
                         case 2:
-                            //FileStream fs = new FileStream(translet.language + ".txt", FileMode.Append);
-                            //StreamWriter sw = new StreamWriter(fs);
-                            //translet.Add(translet.dictionary, fs, sw);
-                            //sw.Close();
-
-                            break;
-
-                        case 3:
-                            //translet.Edit(translet.dictionary, translet.language + ".txt");
-                            //Console.WriteLine();
-                            //break;
-
-                        case 4:
-                            //translet.Delete(translet.dictionary, translet.language + ".txt");
-                            //Console.WriteLine();
-                            //break;
-
-                        case 5:
                             translet.Print();
                             Console.WriteLine();
                             break;
 
-                        case 6:
+                        case 3:
                             exit = true;
                             break;
+                        ////Добавлял новые слова 
+                        //case 4:
+                        //    //FileStream fs = new FileStream(translet.language + ".txt", FileMode.Append);
+                        //    //StreamWriter sw = new StreamWriter(fs);
+                        //    //translet.Add(translet.dictionary, fs, sw);
+                        //    //sw.Close();
+
+                        //    break;
+
+                        //case 5:   //////Редактировал
+                        ////translet.Edit(translet.dictionary, translet.language + ".txt");
+                        ////Console.WriteLine();
+                        ////break;
+
+                        //case 6:   //////Удалял бы слова 
+                        //    //translet.Delete(translet.dictionary, translet.language + ".txt");
+                        //    //Console.WriteLine();
+                        //    //break;
                     }
                 }
+                //////Если выбрали из дипозона, а такого нету то ошибка
                 catch (Exception ex) { Console.WriteLine($"\nОшибка!\n{ex.Message}\n"); }
             }
         }

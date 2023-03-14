@@ -14,6 +14,9 @@ namespace project_hm
     interface EditDictionary  // Интерфейс словоря с дополнением 
     {
         void Add(Dictionary<string, string> translate, FileStream fs);
+        ////void Edit(Dictionary<string, string> dic, string file);
+        ////void Delete(Dictionary<string, string> dic, string file);
+        ////void Find(Dictionary<string, string> dic);
     }
     interface PrintDictionary // Создание интерфейса с печаткой словаря 
     {
@@ -41,7 +44,7 @@ namespace project_hm
             Console.WriteLine($"Выберите словерь из предложенных 1)English, 2)Russian ");
             Console.Write("Введите тип переводчика: ");
             language = Console.ReadLine();
-            Console.WriteLine($"Вы выбрали язык {language}, вы уверены? ");
+            //Console.WriteLine($"Вы выбрали язык {language}, вы уверены? ");
 
             ///////Идея в том чтобы можно было вернуться если выбрал не правельный словарь 
             //if ()
@@ -77,6 +80,9 @@ namespace project_hm
             foreach (var a in dictionary)//слово записанное в переводчик 
             {
                 Console.WriteLine($"{a.Key} превод слова: {a.Value}");//Слово под ключом которое записали и перевод слова под Value запись на консоли
+                StreamReader sr = new StreamReader(language + ".txt", Encoding.UTF8);
+                Console.WriteLine(sr.ReadToEnd());
+                sr.Close();
             }
         }
     }
