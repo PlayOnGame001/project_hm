@@ -51,22 +51,22 @@ namespace project_hm
                             break;
                         ////Добавлял новые слова 
                         //case 4:
-                        //    //FileStream fs = new FileStream(translet.language + ".txt", FileMode.Append);
-                        //    //StreamWriter sw = new StreamWriter(fs);
-                        //    //translet.Add(translet.dictionary, fs, sw);
-                        //    //sw.Close();
+                        //    FileStream fs = new FileStream(translet.language + ".txt", FileMode.Append);
+                        //    StreamWriter sw = new StreamWriter(fs);
+                        //    translet.Add(translet.dictionary, fs, sw);
+                        //    sw.Close();
 
-                        //    break;
+                            //    break;
 
-                        //case 5:   //////Редактировал
-                        ////translet.Edit(translet.dictionary, translet.language + ".txt");
-                        ////Console.WriteLine();
-                        ////break;
+                            //case 5:   //////Редактировал
+                            ////translet.Edit(translet.dictionary, translet.language + ".txt");
+                            ////Console.WriteLine();
+                            ////break;
 
-                        //case 6:   //////Удалял бы слова 
-                        //    //translet.Delete(translet.dictionary, translet.language + ".txt");
-                        //    //Console.WriteLine();
-                        //    //break;
+                            //case 6:   //////Удалял бы слова 
+                            //    //translet.Delete(translet.dictionary, translet.language + ".txt");
+                            //    //Console.WriteLine();
+                            //    //break;
                     }
                 }
                 //////Если выбрали из дипозона, а такого нету то ошибка
