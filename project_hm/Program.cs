@@ -5,36 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_hm
+namespace exam_test
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-        //////////Идея в том чтобы создать колекцию где выбераешь язык из предложенных 
-        //    Dictionary<int, string> BestLanguage = new Dictionary<int, string>()//Создаем колекцию
-        //{    //Здесь словарь BestLanguage в качестве ключей принимает значения типа int, а в качестве значений - строки.
-        //    {1, "English"},//ключ 1 
-        //    {2, "Russian"},//ключ 2
-        //};
-        //    BestLanguage.Add(3, "German");//Мы можем добавить в колекцию еще один язык //добавляем ключ 3
-        ////////////
             Dictionary translet = new Dictionary();
+
             Console.WriteLine("Приветствую вас вы используете словарь. Ниже будет доступен ряд функций которые вы можете выбрать");
-            translet.Create();//Создаем перевод 
-            FileStream file = new FileStream(translet.language + ".txt", FileMode.OpenOrCreate);//Здесь передаеться путь к файлу и перечисление(указывает на режим доступа к файлу)
-                                                                                                //(OpenOrCreate: если файл существует, он открывается, если нет - создается новый)
-            translet.Add(translet.dictionary, file);//Добовляем в фаул перевод 
-            translet.Print();
-            file.Close();
             bool exit = false;
             while (exit != true)
             {
-                Console.Write("Выбор действия:   1.Создать еще слово 2.Перевод 3.Выйти \nВаш ответ: ");
+                Console.Write("Выбор функцию: 1.Выбераем язык 2.Создаем слово 3. Удаляем слово 4.новое слово 5.Показывает все слова 6. Поиск определенного слова 7.Выйти \nВаш ответ: ");
                 try
                 {
-                    string c = Console.ReadLine();
-                    int choose = Convert.ToInt32(c);
+                    string cht = Console.ReadLine();
+                    int choose = Convert.ToInt32(cht);
                     switch (choose)
                     {
                         case 1:
@@ -42,20 +29,33 @@ namespace project_hm
                             Console.WriteLine();
                             break;
                         case 2:
+                            FileStream fs = new FileStream(translet.language + ".txt", FileMode.Append);//Здесь передаеться путь к файлу и перечисление(указывает на режим доступа к файлу)
+                                                                                                        //(OpenOrCreate: если файл существует, он открывается, если нет - создается новый)
+                            StreamWriter sw = new StreamWriter(fs);
+                            translet.Add(translet.translet, fs, sw);//Добовляем перевод к слову
+                            sw.Close();
+                            break;
+                        case 4:
+                            translet.Edit(translet.translet, translet.language + ".txt");
+                            Console.WriteLine();
+                            break;
+                        case 3:
+                            translet.Delete(translet.translet, translet.language + ".txt");
+                            Console.WriteLine();
+                            break;
+                        case 5:
                             translet.Print();
                             Console.WriteLine();
                             break;
-
-                        case 3:
+                        case 6:
+                            translet.Find(translet.translet);
+                            Console.WriteLine();
+                            break;
+                        case 7:
                             exit = true;
                             break;
-                             
-                            //case 4:////Добавлял новые слова
-                            //case 5:   //////Редактировал
-                            //case 6:   //////Удалял бы слова 
                     }
                 }
-                //////Если выбрали из дипозона, а такого нету то ошибка
                 catch (Exception ex) { Console.WriteLine($"\nОшибка!\n{ex.Message}\n"); }
             }
         }
