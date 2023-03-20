@@ -17,7 +17,7 @@ namespace exam_test
             bool exit = false;
             while (exit != true)
             {
-                Console.Write("Выбор функцию: 1.Выбераем язык 2.Создаем слово 3. Удаляем слово 4.новое слово 5.Показывает все слова 6. Поиск определенного слова 7.Выйти \nВаш ответ: ");
+                Console.Write("Выбор функцию: 1.Выбераем язык 2.Создаем слово 3. Удаляем слово 4.Редактируем перевод слова 5.Показывает все слова 6. Поиск определенного слова 7.Выйти \nВаш ответ: ");
                 try
                 {
                     string cht = Console.ReadLine();
@@ -39,6 +39,10 @@ namespace exam_test
                             translet.Edit(translet.translet, translet.language + ".txt");
                             Console.WriteLine();
                             break;
+                        //case 8:
+                        //    translet.Edit(translet.translet, translet.language + ".txt");
+                        //    Console.WriteLine();
+                        //    break;
                         case 3:
                             translet.Delete(translet.translet, translet.language + ".txt");
                             Console.WriteLine();

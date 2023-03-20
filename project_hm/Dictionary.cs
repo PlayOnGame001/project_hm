@@ -21,7 +21,10 @@ namespace exam_test
     {
         void Print();
     }
-
+    interface SecodTranslet 
+    {
+        void SecodTranslet(Dictionary<string, string> perevod, string file);
+    }
     //interface ClearDictionary // Удаляем все объекты из определенного словаря
     //{
     //    void Clear(); 
@@ -47,7 +50,7 @@ namespace exam_test
             bool Flag = false;
             //if (Flag == false)
             //{
-                FileStream file = new FileStream(language + ".txt", FileMode.OpenOrCreate);//Создаем словарь
+                FileStream file = new FileStream(language + ".txt", FileMode.OpenOrCreate);//Создаем словарь новый в файле 
                 file.Close();
             //}
             //else if (language == "English" && Flag == true)  
@@ -165,10 +168,44 @@ namespace exam_test
             Console.WriteLine(sr.ReadToEnd());
             sr.Close();
         }
+
         //StreamReader sr = new StreamReader(language + ".txt", Encoding.UTF8);
         //Console.WriteLine(sr.ReadToEnd());
         //sr.Close();
     }
+    //class SecondPerevod : SecodTranslet
+    //{
+    //    public void SecodTranslet(Dictionary<string, string> perevod, FileStream file1, StreamWriter sw)
+    //    {
+    //        Console.Write("Введите слово для того чтобы добавить ему перевод: ");
+    //        string poisk1 = Console.ReadLine();
+    //        if (perevod.ContainsKey(poisk1))
+    //        {
+    //            var lines = File.ReadAllLines(file1).ToList();
+    //            int index = lines.IndexOf(poisk1 + " - " + perevod[poisk1]);// Ищет слово и показывает его перевод 
+    //            Console.Write("Введите новое слово: ");
+    //            string word = Console.ReadLine();
+    //            Console.Write("Введите перевод нового слова: ");
+    //            string translate = Console.ReadLine();
+    //            perevod.Remove(poisk1);
+    //            lines.RemoveAt(index);
+    //            string save = null;
+    //            foreach (var i in perevod)
+    //            {
+    //                save += $"{i.Key} - {i.Value}\n";// находит слово по ключу и показывает его значение 
+    //            }
+    //            File.WriteAllLines($"{file1}", lines);
+    //            perevod.Add(word, translate);
+    //            string text = null;
+    //            foreach (var i in perevod)
+    //            {
+    //                text += $"{i.Key} - {i.Value}\n";
+    //            }
+    //            File.WriteAllText(file1, text);
+    //        }
+    //        else { Console.WriteLine("Это слово не было найдено!"); }
+    //    }
+    //}
 }
 
 
